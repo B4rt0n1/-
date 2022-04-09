@@ -43,34 +43,38 @@ func main() {
 		positionEls := strings.Split(text, ",")
 		if len(positionEls) != 2 {
 			fmt.Println("Введите позицию в формате строка,столбец например: 2,1")
-			continue
 			turn--
-		}
+			continue
 
+		}
 		row, err := strconv.Atoi(positionEls[0])
 		if err != nil {
 			fmt.Println("Введите позицию в формате строка,столбец например: 2,1")
-			continue
 			turn--
+			continue
+
 		}
 
 		column, err := strconv.Atoi(positionEls[1])
 		if err != nil {
 			fmt.Println("Введите позицию в формате строка,столбец например: 2,1")
-			continue
 			turn--
+			continue
+
 		}
 
 		if row > 2 || column > 2 {
 			fmt.Println("Максимальное значение позиции это 2")
-			continue
 			turn--
+			continue
+
 		}
 
 		if xesAndZeroes[row][column] != 2 {
 			fmt.Println("Ячейка занята.")
-			continue
 			turn--
+			continue
+
 		}
 
 		if turnOfX {
@@ -81,6 +85,7 @@ func main() {
 
 		winner := defineIsGameHasWinner(xesAndZeroes)
 		displayGameMap(xesAndZeroes)
+
 		if turn == 9 && winner == 2 {
 			fmt.Println("Ничья! На поле не осталалось места")
 			break
